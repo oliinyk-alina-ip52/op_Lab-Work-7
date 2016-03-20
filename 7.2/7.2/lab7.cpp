@@ -16,6 +16,7 @@ int main()
 	gets_s(s);
 	printf("enter string with symbols : ");
 	gets_s(a);
+	word(s, a);
 	system("pause");
 }
 
