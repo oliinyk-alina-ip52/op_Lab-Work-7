@@ -26,11 +26,11 @@ void word(char *b, char *c)
 	char *t;
 	char *next = NULL;
 	int len = 0;
-	for (char *t = strtok_s(b, seps, &next); t; t = strtok_s(NULL, seps, &next))
-	for (char *tok = strtok_s(c, seps, &next); tok; tok = strtok_s(NULL, seps, &next))
+	for (char *t = strtok_s(c, seps, &next); t; t = strtok_s(NULL, seps, &next))
+	for (char *tok = strtok_s(b, seps, &next); tok; tok = strtok_s(NULL, seps, &next))
 	{
-		len = strlen(b);
-		if (tok[0] == t[0] && tok[len - 1] == t[0])
-			printf("%s\n", tok);
-	}
+		len = strlen(b);		
+			if (tok[0] == t[0] && tok[len - 1] == t[0])
+				printf("%s\n", tok);
+		}
 }
