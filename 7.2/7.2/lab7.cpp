@@ -26,20 +26,11 @@ void word(char *b, char *c)
 	char *t;
 	char *next = NULL;
 	int len = 0;
-	int k = 0;
-	token = strtok_s(b, seps, &next);
-	t = strtok_s(c, seps, &next);
-	while (token != NULL)
+	for (char *t = strtok_s(b, seps, &next); t; t = strtok_s(NULL, seps, &next))
+	for (char *tok = strtok_s(c, seps, &next); tok; tok = strtok_s(NULL, seps, &next))
 	{
-		while (t != NULL)
-		{
-			k = strlen(t);
-			len = strlen(token);
-			if (token[0] == t[0] && token[len - 1] == t[0]){
-				cout << token << endl;
-			}
-			t = strtok_s(NULL, seps, &next);
-		}
-		token = strtok_s(NULL, seps, &next);
+		len = strlen(b);
+		if (tok[0] == t[0] && tok[len - 1] == t[0])
+			printf("%s\n", tok);
 	}
 }
