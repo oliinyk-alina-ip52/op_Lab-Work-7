@@ -1,5 +1,5 @@
 #include<iostream>
-#include<string.h>
+#include<cstring>
 #include<stdio.h>
 
 using namespace std;
@@ -22,15 +22,16 @@ int main()
 
 void word(char *b, char *c)
 {
-	char *token;
-	char *t;
-	char *next = NULL;
+	char *next1 = NULL;
+	char *next2 = NULL;
 	int len = 0;
-	for (char *t = strtok_s(c, seps, &next); t; t = strtok_s(NULL, seps, &next))
-	for (char *tok = strtok_s(b, seps, &next); tok; tok = strtok_s(NULL, seps, &next))
-	{
-		len = strlen(b);		
+	char *tok = strtok_s(b, seps, &next1);
+	char *t = strtok_s(c, seps, &next2);
+	while ((tok != NULL)||(t != NULL)){
+			len = strlen(b);
 			if (tok[0] == t[0] && tok[len - 1] == t[0])
-				printf("%s\n", tok);
-		}
-}
+			printf("%s\n", tok);
+			t = strtok_s(NULL, seps, &next2);
+		tok = strtok_s(NULL, seps, &next1);
+	}
+	}
