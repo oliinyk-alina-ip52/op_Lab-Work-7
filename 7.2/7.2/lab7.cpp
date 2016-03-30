@@ -1,37 +1,33 @@
 #include<iostream>
 #include<cstring>
 #include<stdio.h>
+#include<conio.h>
 
 using namespace std;
 
 const int n = 100;
 char s[n];
-char a[n];
-char seps[] = " ,.!?\t\n";
-void word(char *, char *);
+char a[n],c;
+void word();
+void inp_symbols();
 
 int main()
 {
-	printf("enter string with words: ");
-	gets_s(s);
 	printf("enter string with symbols : ");
-	gets_s(a);
-	word(s, a);
+	inp_symbols();
+	printf("enter string with words: ");
+	
 	system("pause");
 }
 
-void word(char *b, char *c)
+void inp_symbols()
 {
-	char *next1 = NULL;
-	char *next2 = NULL;
-	int len = 0;
-	char *tok = strtok_s(b, seps, &next1);
-	char *t = strtok_s(c, seps, &next2);
-	while ((tok != NULL)||(t != NULL)){
-			len = strlen(b);
-			if (tok[0] == t[0] && tok[len - 1] == t[0])
-			printf("%s\n", tok);
-			t = strtok_s(NULL, seps, &next2);
-		tok = strtok_s(NULL, seps, &next1);
-	}
-	}
+	int k = 0;
+	do
+	{
+		s[k] = _getche();
+		k++;
+	} while (s[k - 1] != 27);
+	k--;
+	printf("\n");
+}
