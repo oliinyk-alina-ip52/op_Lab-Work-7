@@ -8,7 +8,7 @@ using namespace std;
 const int n = 100;
 void word();
 void inp_symbols();
-char a[50];
+char a[n];
 char s[n];
 int k=0,d,b;
 
@@ -48,7 +48,7 @@ void word()
 	if (a[strlen(a) - 1] == s[i])
 		b = 1;
 	if (d == 1 && b == 1)
-		printf("\n%s", a);
+		printf("\n%s\n", a);
 	d = 0;
 	b = 0;
 }
