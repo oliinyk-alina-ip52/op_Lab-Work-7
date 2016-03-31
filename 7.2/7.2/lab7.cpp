@@ -6,8 +6,8 @@
 using namespace std;
 
 const int n = 100;
-void word();
-void inp_symbols();
+void word(char *, char*);
+void inp_symbols(char[]);
 char a[n];
 char s[n];
 int k=0,d,b;
@@ -15,40 +15,40 @@ int k=0,d,b;
 int main()
 {
 	printf("enter string with symbols : ");
-	inp_symbols();
+	inp_symbols(a);
 	printf("enter string with words: ");
 	do{
-		word();
-	} while (a != "quit");
+		word(s,a);
+	} while (s != "0");
 	system("pause");
 }
 
-void inp_symbols()
+void inp_symbols(char q[n] )
 {
 	do
 	{
-		s[k] = _getche();
+		q[k] = _getche();
 		k++;
-	} while (s[k - 1] != 27);
+	} while (q[k - 1] != 27);
 	k--;
 	printf("\n");
 }
 
-void word()
+void word(char *p, char*t)
 {
 	int m;
-	cin.getline(a, 50);
+	cin.getline(p, 50);
 	for (int i = 0; i < k; i++)
 	{
-		if (a[0] == s[i])
+		if (p[0] == t[i])
 			d = 1;
 	}
 	if (d==1)
 	for (int i = 0; i < k;i++)
-	if (a[strlen(a) - 1] == s[i])
+	if (p[strlen(p) - 1] == t[i])
 		b = 1;
 	if (d == 1 && b == 1)
-		printf("\n%s\n", a);
+		printf("%s\n", p);
 	d = 0;
 	b = 0;
 }
