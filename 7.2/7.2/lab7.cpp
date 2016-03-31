@@ -19,7 +19,7 @@ int main()
 	printf("enter string with words: ");
 	do{
 		word(s,a);
-	} while (s != "0");
+	} while (s[k-1] !=27);
 	system("pause");
 }
 
@@ -29,7 +29,7 @@ void inp_symbols(char q[n] )
 	{
 		q[k] = _getche();
 		k++;
-	} while (q[k - 1] != 27);
+	} while (q[k - 1] != 13);
 	k--;
 	printf("\n");
 }
